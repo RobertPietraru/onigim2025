@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Separator } from "$lib/components/ui/separator";
     import { program, activityTypes, activities } from "./program";
+    let showBusy = false;
 </script>
 
 <div class="max-w-[1600px] mx-auto p-4 sm:p-6 lg:p-10 font-sans">
@@ -30,74 +31,155 @@
 </div>
 
 {#snippet Activity(
-    activity: (typeof program)[number]["activities"][number],
+    act: (typeof program)[number]["activities"][number],
     nextActivity: (typeof program)[number]["activities"][number],
 )}
-    <div
-        class="flex flex-col lg:flex-row hover:bg-slate-50 transition-all duration-200"
-    >
-        <div class="relative pr-10 w-32">
-            <div
-                class="text-slate-600 font-semibold text-base sm:text-lg flex flex-col justify-between h-full"
-            >
-                <span>{activity.start.toFixed(2).replace(".", ":")}</span>
-                {#if activity.end && activity.end !== nextActivity?.start}
-                    <span class="mb-8"
-                        >{activity.end.toFixed(2).replace(".", ":")}</span
+    {#if "free" in act && act.free && "start" in act.free && "end" in act.free}
+        {@const activity = showBusy ? act.busy : act.free}
+        <div
+            class="flex flex-col lg:flex-row hover:bg-slate-50 transition-all duration-200"
+        >
+            <div class="relative pr-10 w-32">
+                <div
+                    class="text-slate-600 font-semibold text-base sm:text-lg flex flex-col justify-between h-full"
+                >
+                    <span>
+                        {activity.start.toFixed(2).replace(".", ":")}
+                    </span>
+                    {#if activity.end && activity.end !== nextActivity?.start}
+                        <span class="mb-8"
+                            >{activity.end.toFixed(2).replace(".", ":")}</span
+                        >
+                    {/if}
+                </div>
+            </div>
+            <div class="relative">
+                <div class="mt-4">
+                    {@render Indicator(activity)}
+                </div>
+                <Separator orientation="vertical" class="w-2" />
+            </div>
+
+            <div class="flex-1 px-0 lg:px-6">
+                <h3
+                    class="text-slate-800 mb-2 sm:mb-3 text-lg sm:text-xl font-semibold flex items-start gap-2"
+                >
+                    <span
+                        >{activities[
+                            activity.activity as keyof typeof activities
+                        ]?.icon || "📅"}</span
                     >
+                    <span>{activity.activity}</span>
+                </h3>
+                <p
+                    class="text-slate-500 mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2 "
+                >
+                    <span>📍</span>
+                    <span>{activity.location}</span>
+                </p>
+                <button
+                    class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-md text-sm font-medium"
+                    on:click={() => (showBusy = !showBusy)}
+                >
+                    {showBusy
+                        ? "Vezi activitatea alternativă"
+                        : "Vezi activitatea  principală"}
+                </button>
+                {#if activity.observations}
+                    <div
+                        class="text-slate-400 italic mt-2 sm:mt-3 text-sm sm:text-base p-3 bg-slate-50 rounded-md border-l-[3px] border-blue-500"
+                    >
+                        <span>ℹ️</span>
+                        <p>{activity.observations}</p>
+                    </div>
                 {/if}
             </div>
-        </div>
-        <div class="relative">
-            <div class="mt-4">
-                {@render Indicator(activity)}
-            </div>
-            <Separator orientation="vertical" class="w-2" />
-        </div>
 
-        <div class="flex-1 px-0 lg:px-6">
-            <h3
-                class="text-slate-800 mb-2 sm:mb-3 text-lg sm:text-xl font-semibold flex items-center gap-2"
-            >
-                <span
-                    >{activities[activity.activity as keyof typeof activities]
-                        ?.icon || "📅"}</span
-                >
-                <span>{activity.activity}</span>
-            </h3>
-            <p
-                class="text-slate-500 mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2"
-            >
-                <span>📍</span>
-                <span>{activity.location}</span>
-            </p>
-            {#if activity.observations}
-                <div
-                    class="text-slate-400 italic mt-2 sm:mt-3 text-sm sm:text-base p-3 bg-slate-50 rounded-md border-l-[3px] border-blue-500"
-                >
-                    <span>ℹ️</span>
-                    <p>{activity.observations}</p>
+            {#if activity.map}
+                <div class="map w-full lg:w-auto mt-4 lg:mt-0">
+                    <div
+                        class="map-container relative overflow-hidden pt-[56.25%] lg:pt-0 lg:h-[450px] lg:w-[600px] mb-4"
+                    >
+                        <iframe
+                            title="Map"
+                            src={activity.map}
+                            class="w-full h-full border-0"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            style="pointer-events: none"
+                        ></iframe>
+                    </div>
                 </div>
             {/if}
         </div>
-
-        {#if activity.map}
-            <div class="map w-full lg:w-auto mt-4 lg:mt-0">
+    {:else}
+        <div
+            class="flex flex-col lg:flex-row hover:bg-slate-50 transition-all duration-200"
+        >
+            <div class="relative pr-10 w-32">
                 <div
-                    class="map-container relative overflow-hidden pt-[56.25%] lg:pt-0 lg:h-[450px] lg:w-[600px] mb-4"
+                    class="text-slate-600 font-semibold text-base sm:text-lg flex flex-col justify-between h-full"
                 >
-                    <iframe
-                        title="Map"
-                        src={activity.map}
-                        class="w-full h-full border-0"
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        style="pointer-events: none"
-                    ></iframe>
+                    <span>{act.start?.toFixed(2).replace(".", ":")}</span>
+                    {#if act.end && act.end !== nextActivity?.start}
+                        <span class="mb-8"
+                            >{act.end.toFixed(2).replace(".", ":")}</span
+                        >
+                    {/if}
                 </div>
             </div>
-        {/if}
-    </div>
+            <div class="relative">
+                <div class="mt-4">
+                    {@render Indicator(act)}
+                </div>
+                <Separator orientation="vertical" class="w-2" />
+            </div>
+
+            <div class="flex-1 px-0 lg:px-6">
+                <h3
+                    class="text-slate-800 mb-2 sm:mb-3 text-lg sm:text-xl font-semibold flex items-center gap-2"
+                >
+                    <span
+                        >{activities[act.activity as keyof typeof activities]
+                            ?.icon || "📅"}</span
+                    >
+                    <span>{act.activity}</span>
+                </h3>
+                <p
+                    class="text-slate-500 mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2"
+                >
+                    <span>📍</span>
+                    <span>{act.location}</span>
+                </p>
+
+                {#if act.observations}
+                    <div
+                        class="text-slate-400 italic mt-2 sm:mt-3 text-sm sm:text-base p-3 bg-slate-50 rounded-md border-l-[3px] border-blue-500"
+                    >
+                        <span>ℹ️</span>
+                        <p>{act.observations}</p>
+                    </div>
+                {/if}
+            </div>
+
+            {#if act.map}
+                <div class="map w-full lg:w-auto mt-4 lg:mt-0">
+                    <div
+                        class="map-container relative overflow-hidden pt-[56.25%] lg:pt-0 lg:h-[450px] lg:w-[600px] mb-4"
+                    >
+                        <iframe
+                            title="Map"
+                            src={act.map}
+                            class="w-full h-full border-0"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            style="pointer-events: none"
+                        ></iframe>
+                    </div>
+                </div>
+            {/if}
+        </div>
+    {/if}
 {/snippet}
 
 {#snippet Indicator(activity: (typeof program)[number]["activities"][number])}

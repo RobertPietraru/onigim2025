@@ -244,25 +244,29 @@ export let program = [
                 observations: null,
             },
             {
-                start: 9.0,
-                map: embeds.casalux,
-                end: 13.0,
-                activity:
-                    "Barajul de selecţie a lotului naţional de junior",
-                location: 'Centrul de concurs - Complex "Casa Lux"',
-                observations: null,
+                free:
+                {
+                    start: 9.3,
+                    map: embeds.cornisa,
+                    end: 13.0,
+                    activity:
+                        "Vizitarea orașului Botoșani / Activitate recreativă la Piscina Cornișa",
+                    location:
+                        "Orașul Botoșani/ Cornișa AquaPark & Sports Botosani",
+                    observations:
+                        "Participanții care nu participă la proba de baraj și doresc să beneficieze de acces pe bază de ecuson la Piscina Cornișa, trebuie să aibă echipament adecvat.",
+                },
+                busy: {
+                    start: 9.0,
+                    map: embeds.casalux,
+                    end: 13.0,
+                    activity:
+                        "Barajul de selecţie a lotului naţional de junior",
+                    location: 'Centrul de concurs - Complex "Casa Lux"',
+                    observations: null,
+                },
             },
-            {
-                start: 9.3,
-                map: embeds.cornisa,
-                end: 13.0,
-                activity:
-                    "Vizitarea orașului Botoșani / Activitate recreativă la Piscina Cornișa",
-                location:
-                    "Orașul Botoșani/ Cornișa AquaPark & Sports Botosani",
-                observations:
-                    "Participanții care nu participă la proba de baraj și doresc să beneficieze de acces pe bază de ecuson la Piscina Cornișa, trebuie să aibă echipament adecvat.",
-            },
+
             {
                 start: 13.3,
                 map: embeds.rapsodia,
