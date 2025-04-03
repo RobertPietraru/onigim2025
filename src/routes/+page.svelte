@@ -31,6 +31,7 @@
                     activity: "Festivitate de deschidere",
                     map: embeds.mihaiEminescu,
                     location: 'Teatrul "Mihai Eminescu" Botoșani',
+                    observations:null,
                 },
                 {
                     start: "18.00",
@@ -38,12 +39,14 @@
                     activity: "Sesiunea de antrenament",
                     map: embeds.casalux,
                     location: 'Centrul de concurs - Complex "Casa Lux"',
+                    observations:null,
                 },
                 {
                     start: "19.30",
                     activity: "Cină",
                     map: embeds.rapsodia,
                     location: "Hotel Rapsodia/ Maria",
+                    observations:null,
                 },
             ],
         },
@@ -56,6 +59,7 @@
                     activity: "Mic dejun",
                     map: embeds.rapsodia,
                     location: "Hotel Rapsodia/ Maria",
+                    observations:null,
                 },
                 {
                     start: "9.00",
@@ -63,6 +67,7 @@
                     activity: "Sosire în centrul de concurs",
                     map: embeds.casalux,
                     location: 'Centrul de concurs- Complex "Casa Lux"',
+                    observations:null,
                 },
                 {
                     start: "10.00",
@@ -70,6 +75,7 @@
                     activity: "Proba ONI",
                     map: embeds.casalux,
                     location: 'Centrul de concurs- Complex "Casa Lux"',
+                    observations:null,
                 },
                 {
                     start: "14.30",
@@ -77,6 +83,7 @@
                     activity: "Masa de prânz",
                     map: embeds.rapsodia,
                     location: "Hotel Rapsodia/ Maria",
+                    observations:null,
                 },
                 {
                     start: "16.00",
@@ -101,6 +108,7 @@
                     activity: "Cină",
                     map: embeds.rapsodia,
                     location: "Hotel Rapsodia/ Maria",
+                    observations:null,
                 },
             ],
         },
@@ -113,6 +121,7 @@
                     activity: "Mic dejun",
                     map: embeds.rapsodia,
                     location: "Hotel Rapsodia/ Maria",
+                    observations:null,
                 },
                 {
                     start: "9.00",
@@ -120,12 +129,14 @@
                     activity: "Excursie",
                     map: embeds.vorona,
                     location: "Vorona",
+                    observations:null,
                 },
                 {
                     start: "14.30",
                     activity: "Masa de prânz",
                     map: embeds.rapsodia,
                     location: "Hotel Rapsodia/ Maria",
+                    observations:null,
                 },
                 {
                     start: "15.30",
@@ -133,12 +144,14 @@
                     activity: "Festivitate de premiere",
                     map: embeds.mihaiEminescu,
                     location: 'Teatrul "Mihai Eminescu" Botoșani',
-                },
+                    observations:null,
+                    },
                 {
                     start: "19.30",
                     activity: "Cină festivă",
                     map: embeds.rapsodia,
                     location: 'Hotel Rapsodia - Sala "Mihai Eminescu"',
+                    observations:null,
                 },
             ],
         },
@@ -151,6 +164,7 @@
                     end: "8.30",
                     activity: "Mic dejun",
                     location: "Hotel Rapsodia/ Maria",
+                    observations:null,
                 },
                 {
                     start: "8.30",
@@ -158,6 +172,7 @@
                     end: "9.00",
                     activity: "Sosire în centrul de concurs",
                     location: 'Centrul de concurs - Complex "Casa Lux"',
+                    observations:null,
                 },
                 {
                     start: "9.00",
@@ -166,6 +181,7 @@
                     activity:
                         "Barajul de selecţie a lotului naţional de junior",
                     location: 'Centrul de concurs - Complex "Casa Lux"',
+                    observations:null,
                 },
                 {
                     start: "9.30",
@@ -183,12 +199,14 @@
                     map: embeds.rapsodia,
                     activity: "Masa de prânz",
                     location: "Hotel Rapsodia",
+                    observations:null,
                 },
                 {
                     start: "19.30",
                     map: embeds.rapsodia,
                     activity: "Cină",
                     location: "Hotel Rapsodia",
+                    observations:null,
                 },
             ],
         },
@@ -201,170 +219,74 @@
                     activity: "Mic dejun",
                     map: embeds.rapsodia,
                     location: "Hotel Rapsodia/ Maria",
+                    observations:null,
                 },
                 {
                     start: "10.00",
                     end: "12.00",
                     activity: "Plecarea participanţilor",
                     map: null,
+                    observations:null,
                 },
             ],
         },
     ];
 </script>
-
-<div class="timeline-container">
+<div class="max-w-[1600px] mx-auto p-4 sm:p-6 lg:p-10 font-sans">
+    <h1 class="text-slate-800 text-4xl mb-10 pb-4 border-b-2 border-slate-100">PROGRAMUL OLIMPIADEI NAŢIONALE DE INFORMATICĂ GIMNAZIU Botoșani, 14-18 aprilie 2025</h1>
     {#each activities as day}
-        <div class="day-container">
-            <h2 class="date">{day.date}</h2>
-            <div class="activities">
+        <div class="mb-8 sm:mb-16 bg-white rounded-xl p-4 sm:p-6 lg:p-8 shadow-md">
+            <h2 class="text-slate-800 text-2xl sm:text-3xl lg:text-4xl mb-6 sm:mb-10 pb-4 border-b-2 border-slate-100">
+                <span>{day.date}</span>
+                <div></div>
+            </h2>
+            <div>
                 {#each day.activities as activity}
-                    <div class="activity-row">
-                        <div class="timeline">
-                            <div class="time">
-                                {activity.start}{activity.end
-                                    ? ` - ${activity.end}`
-                                    : ""}
+                    <div class="flex flex-col lg:flex-row mb-8 sm:mb-10 transition-transform duration-200 hover:translate-x-2">
+                        <div class="w-full lg:w-[200px] relative pr-10 mb-4 lg:mb-0">
+                            <div class="text-slate-600 font-semibold text-base sm:text-lg">
+                                <span>{activity.start}</span>
+                                {#if activity.end}
+                                    <span>→</span>
+                                    <span>{activity.end}</span>
+                                {/if}
                             </div>
-                            <div class="line"></div>
-                            <div class="dot"></div>
+                            <div class="hidden lg:block absolute top-6 -bottom-6 right-[7px] w-0.5 bg-slate-200"></div>
+                            <div>
+                                <div class="hidden lg:block absolute top-2 right-0 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_0_4px_rgba(52,152,219,0.2)] transition-transform duration-200 group-hover:scale-120"></div>
+                                <div></div>
+                            </div>
                         </div>
+                        <div class="flex-1 px-0 lg:px-6">
+                            <h3 class="text-slate-800 mb-2 sm:mb-3 text-lg sm:text-xl font-semibold">{activity.activity}</h3>
+                            <p class="text-slate-500 mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2">
+                                <span>📍</span>
+                                <span>{activity.location}</span>
+                            </p>
+                            {#if activity.observations}
+                                <div class="text-slate-400 italic mt-2 sm:mt-3 text-sm sm:text-base p-3 bg-slate-50 rounded-md border-l-[3px] border-blue-500">
+                                    <span>ℹ️</span>
+                                    <p>{activity.observations}</p>
+                                </div>
+                            {/if}
+                        </div>
+
                         {#if activity.map}
-                            <div class="map">
-                                <iframe
-                                    title="Map"
-                                    src={activity.map}
-                                    width="600"
-                                    height="450"
-                                    style="border:0;"
-                                    loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"
-                                ></iframe>
+                            <div class="map w-full lg:w-auto mt-4 lg:mt-0">
+                                <div class="map-container relative overflow-hidden pt-[56.25%] lg:pt-0 lg:h-[450px] lg:w-[600px]">
+                                    <iframe
+                                        title="Map"
+                                        src={activity.map}
+                                        class="absolute top-0 left-0 w-full h-full border-0"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                    ></iframe>
+                                </div>
                             </div>
                         {/if}
-                        <div class="content">
-                            <h3>{activity.activity}</h3>
-                            <p class="location">{activity.location}</p>
-                        </div>
                     </div>
                 {/each}
             </div>
         </div>
     {/each}
 </div>
-
-<style>
-    .timeline-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2.5rem;
-        font-family:
-            system-ui,
-            -apple-system,
-            sans-serif;
-    }
-
-    .day-container {
-        margin-bottom: 4rem;
-        background: white;
-        border-radius: 12px;
-        padding: 2rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .date {
-        color: #2c3e50;
-        font-size: 2rem;
-        margin-bottom: 2.5rem;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid #f0f2f5;
-    }
-
-    .activity-row {
-        display: flex;
-        margin-bottom: 2.5rem;
-        transition: transform 0.2s ease;
-    }
-
-    .activity-row:hover {
-        transform: translateX(8px);
-    }
-
-    .timeline {
-        width: 200px;
-        position: relative;
-        padding-right: 2.5rem;
-    }
-
-    .time {
-        color: #5a6c7d;
-        font-weight: 600;
-        font-size: 1.1rem;
-    }
-
-    .line {
-        position: absolute;
-        top: 24px;
-        bottom: -24px;
-        right: 7px;
-        width: 2px;
-        background: #e0e6ed;
-    }
-
-    .dot {
-        position: absolute;
-        top: 8px;
-        right: 0;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        background: #3498db;
-        box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
-        transition: transform 0.2s ease;
-    }
-
-    .activity-row:hover .dot {
-        transform: scale(1.2);
-    }
-
-    .content {
-        flex: 1;
-        padding: 0 1.5rem;
-    }
-
-    .content h3 {
-        color: #2c3e50;
-        margin: 0 0 0.75rem 0;
-        font-size: 1.3rem;
-        font-weight: 600;
-    }
-
-    .location {
-        color: #64748b;
-        margin: 0 0 0.75rem 0;
-        font-size: 1.1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .location::before {
-        content: "📍";
-        font-size: 1rem;
-    }
-
-    .observations {
-        color: #94a3b8;
-        font-style: italic;
-        margin: 0.75rem 0 0 0;
-        font-size: 1rem;
-        padding: 0.75rem;
-        background: #f8fafc;
-        border-radius: 6px;
-        border-left: 3px solid #3498db;
-    }
-
-    .activity-row:last-child .line {
-        display: none;
-    }
-</style>
