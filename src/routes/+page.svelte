@@ -225,6 +225,7 @@
                     start: "10.00",
                     end: "12.00",
                     activity: "Plecarea participanţilor",
+                    location: "Botosani",
                     map: null,
                     observations:null,
                 },
@@ -233,7 +234,7 @@
     ];
 </script>
 <div class="max-w-[1600px] mx-auto p-4 sm:p-6 lg:p-10 font-sans">
-    <h1 class="text-slate-800 text-4xl mb-10 pb-4 border-b-2 border-slate-100">PROGRAMUL OLIMPIADEI NAŢIONALE DE INFORMATICĂ GIMNAZIU Botoșani, 14-18 aprilie 2025</h1>
+    <h1 class="text-slate-800 text-2xl sm:text-3xl lg:text-4xl mb-6 sm:mb-8 lg:mb-10 pb-4 border-b-2 border-slate-100">PROGRAMUL OLIMPIADEI NAŢIONALE DE INFORMATICĂ GIMNAZIU Botoșani, 14-18 aprilie 2025</h1>
     {#each activities as day}
         <div class="mb-8 sm:mb-16 bg-white rounded-xl p-4 sm:p-6 lg:p-8 shadow-md">
             <h2 class="text-slate-800 text-2xl sm:text-3xl lg:text-4xl mb-6 sm:mb-10 pb-4 border-b-2 border-slate-100">
