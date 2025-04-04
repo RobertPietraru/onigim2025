@@ -295,7 +295,15 @@ export let program = [
                 location: 'Centrul de concurs - Complex "Casa Lux"',
                 observations: null,
             },
+
 	    {
+                    start: 8.5,
+                    end: 9.5,
+		    branch: "fara baraj",
+                    activity: "Pauză",
+            },
+	    {
+
                     start: 9.5,
                     map: embeds.cornisa,
                     end: 13.0,
@@ -310,7 +318,6 @@ export let program = [
 
 	    {
                     start: 13,
-                    map: embeds.cornisa,
                     end: 13.5,
 		    branch: "fara baraj",
                     activity:
@@ -325,6 +332,14 @@ export let program = [
                         "Barajul de selecţie a lotului naţional de junior",
                     location: 'Centrul de concurs - Complex "Casa Lux"',
                     observations: null,
+            },
+
+	    {
+                    start: 13,
+                    end: 13.5,
+		    branch: "baraj",
+                    activity:
+                        "Pauză",
             },
             {
                 start: 13.5,
@@ -354,11 +369,15 @@ export let program = [
                 location: "Hotel Rapsodia/ Maria",
                 observations: null,
             },
+
+            {
+                start: 9.0,
+                end: 10.0,
+                activity: "Pauză",
+            },
             {
                 start: 10.0,
-                end: 12.0,
                 activity: "Plecarea participanţilor",
-                location: "Botosani",
                 map: null,
                 observations: null,
             },

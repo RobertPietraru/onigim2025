@@ -57,10 +57,10 @@
                 <div
                     class="text-slate-600 font-semibold text-base sm:text-lg flex flex-col justify-between h-full"
                 >
-                    <span>{act.start?.toFixed(2).replace(".", ":")}</span>
+                    <span>{act.start?.toFixed(2).replace(".", ":").replace("50", "30")}</span>
                     {#if act.end && act.end !== nextActivity?.start}
                         <span class="mb-8"
-                            >{act.end.toFixed(2).replace(".", ":")}</span
+                            >{act.end.toFixed(2).replace(".", ":").replace("50", "30")}</span
                         >
                     {/if}
                 </div>
@@ -90,6 +90,7 @@
                     <span>{act.location}</span>
                 </p>
 		{/if}
+		{#if act.activity != "Pauză"}
 		<Button onclick={ () => {
 		if (active_branch == "baraj"){
 			active_branch = "fara baraj";
@@ -99,6 +100,7 @@
 		}}>
 			{active_branch ? "Vezi activitatile alternative" : "Vezi activitatile principale"}
 		</Button>
+		{/if}
 
                 {#if act.observations}
                     <div
@@ -125,11 +127,11 @@
                 <div
                     class="text-slate-600 font-semibold text-base sm:text-lg flex flex-col justify-between h-full"
                 >
-                    <span>{act.start?.toFixed(2).replace(".", ":")}</span>
+                    <span>{act.start?.toFixed(2).replace(".", ":").replace("50", "30")}</span>
                     {#if act.end && act.end !== nextActivity?.start}
 		    	{console.log(act.end, nextActivity?.start)}
                         <span class="mb-8"
-                            >{act.end.toFixed(2).replace(".", ":")}</span
+                            >{act.end.toFixed(2).replace(".", ":").replace("50", "30")}</span
                         >
                     {/if}
                 </div>
