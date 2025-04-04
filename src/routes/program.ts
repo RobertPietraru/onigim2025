@@ -1,15 +1,31 @@
-export let embeds = {
-    rapsodia:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d482.49505729276814!2d26.660965935770726!3d47.74530935744337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4734e97d48300001%3A0xb8fdc1b79bfc95fc!2sHotel%20Rapsodia!5e1!3m2!1sen!2sro!4v1743706672808!5m2!1sen!2sro",
-    casalux:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d840.2602066654737!2d26.669390986994657!3d47.73368756830001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4734e982d34d893b%3A0xab14af3ba30bbd53!2sPensiunea%20%22Casa%20Lux%22!5e1!3m2!1sen!2sro!4v1743706815733!5m2!1sen!2sro",
-    mihaiEminescu:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d965.0073559917137!2d26.661765384136892!3d47.74437933454903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4734e97d217f1483%3A0x40413eb2435b8652!2zVGVhdHJ1bCDigJ5NaWhhaSBFbWluZXNjdeKAnQ!5e1!3m2!1sen!2sro!4v1743708337350!5m2!1sen!2sro",
-    parculPrimariei:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1273.3109395177125!2d26.65996857605567!3d47.74535337838612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4734e97d367450cd%3A0x8dfcbba8039d9bbd!2sParcul%20Prim%C4%83riei!5e1!3m2!1sen!2sro!4v1743707274814!5m2!1sen!2sro",
-    vorona: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20433.092975599975!2d26.59099012712378!3d47.591566260310586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4734ddbc4a9c7007%3A0xa7e7f5239df00ae0!2s717475%20Vorona!5e1!3m2!1sen!2sro!4v1743707478859!5m2!1sen!2sro",
-    cornisa:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1680.2588027417773!2d26.63250653896508!3d47.74179131707506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4734e942507a0a2d%3A0x113d4270491a5e52!2zQ29ybmnImWEgV2F0ZXJwYXJrICYg4oCL4oCLU3BvcnRzIEJvdG_ImWFuaQ!5e1!3m2!1sen!2sro!4v1743707529413!5m2!1sen!2sro",
+export let places = {
+    rapsodia: {
+        url: "https://maps.app.goo.gl/bu4MgoKceUY7S3Qd6",
+        name: "Hotel Rapsodia/ Maria",
+        images: [
+            "https://onigim2025.sepi.ro/wp-content/uploads/onigim2025/2025/03/Toamna-598.jpg",
+        ],
+    },
+    casalux: {
+        url: "https://maps.app.goo.gl/Sh56Cctvh3KGPi82A",
+        name: 'Centrul de concurs - Complex "Casa Lux"',
+    },
+    teatrulMihaiEminescu: {
+        url: "https://maps.app.goo.gl/sVM9vCB9D19kJCi16",
+        name: 'Teatrul "Mihai Eminescu" Botoșani',
+    },
+    parculPrimariei: {
+        url: "https://maps.app.goo.gl/3pFyBkLN3BXvsdci8",
+        name: "Parcul Primăriei",
+    },
+    vorona: {
+        url: "https://maps.app.goo.gl/22ozJD6Xup9Lxjk8A",
+        name: "Vorona",
+    },
+    cornisa: {
+        url: "https://maps.app.goo.gl/YpZUrwmdRcNzDzt58",
+        name: "Orașul Botoșani/ Cornișa AquaPark & Sports Botosani",
+    },
 };
 export const activityTypes = [
     "Cazare",
@@ -89,15 +105,14 @@ export let activities = {
 
 export let program = [
     {
-        date: "14 aprilie 2025",
-
+        date: 14,
+        day: "Luni",
         activities: [
             {
                 start: 11.0,
                 end: 15.0,
                 activity: "Cazarea participanţilor",
-                map: embeds.rapsodia,
-                location: "Hotel Rapsodia/ Maria",
+                location: places.rapsodia,
                 observations:
                     "Consultaţi pe site în zona Centrul de concurs / Cazare repartizarea pe hoteluri",
             },
@@ -110,8 +125,7 @@ export let program = [
                 start: 15.5,
                 end: 17.5,
                 activity: "Festivitate de deschidere",
-                map: embeds.mihaiEminescu,
-                location: 'Teatrul "Mihai Eminescu" Botoșani',
+                location: places.teatrulMihaiEminescu,
                 observations: null,
             },
             {
@@ -123,8 +137,7 @@ export let program = [
                 start: 18.0,
                 end: 19.0,
                 activity: "Sesiunea de antrenament",
-                map: embeds.casalux,
-                location: 'Centrul de concurs - Complex "Casa Lux"',
+                location: places.casalux,
                 observations: null,
             },
             {
@@ -135,21 +148,20 @@ export let program = [
             {
                 start: 19.5,
                 activity: "Cină",
-                map: embeds.rapsodia,
-                location: "Hotel Rapsodia/ Maria",
+                location: places.rapsodia,
                 observations: null,
             },
         ],
     },
     {
-        date: "15 aprilie 2025",
+        date: 15,
+        day: "Marți",
         activities: [
             {
                 start: 7.0,
                 end: 9.0,
                 activity: "Mic dejun",
-                map: embeds.rapsodia,
-                location: "Hotel Rapsodia/ Maria",
+                location: places.rapsodia,
                 observations: null,
             },
 
@@ -157,8 +169,7 @@ export let program = [
                 start: 9.0,
                 end: 9.5,
                 activity: "Sosire în centrul de concurs",
-                map: embeds.casalux,
-                location: 'Centrul de concurs- Complex "Casa Lux"',
+                location: places.casalux,
                 observations: null,
             },
 
@@ -172,8 +183,7 @@ export let program = [
                 start: 10.0,
                 end: 14.0,
                 activity: "Proba ONI",
-                map: embeds.casalux,
-                location: 'Centrul de concurs- Complex "Casa Lux"',
+                location: places.casalux,
                 observations: null,
             },
             {
@@ -185,16 +195,14 @@ export let program = [
                 start: 14.5,
                 end: 16.0,
                 activity: "Masa de prânz",
-                map: embeds.rapsodia,
-                location: "Hotel Rapsodia/ Maria",
+                location: places.rapsodia,
                 observations: null,
             },
             {
                 start: 16.0,
                 end: 17.0,
                 activity: "Workshop – Algolymp",
-                map: embeds.rapsodia,
-                location: 'Hotel Rapsodia - Sala "Mihai Eminescu"',
+                location: places.rapsodia,
                 observations:
                     "La Workshop rezolvăm cu Algolymp problemele de la probă.",
             },
@@ -202,8 +210,7 @@ export let program = [
                 start: 17.0,
                 end: 19.0,
                 activity: "🔍🤖Hatch The Code!🥚🐇",
-                map: embeds.parculPrimariei,
-                location: "Parcul Primăriei",
+                location: places.parculPrimariei,
                 observations:
                     "Vânătoare de ouă cu premii, organizată în Parcul Primăriei.",
             },
@@ -215,29 +222,27 @@ export let program = [
             {
                 start: 19.5,
                 activity: "Cină",
-                map: embeds.rapsodia,
-                location: "Hotel Rapsodia/ Maria",
+                location: places.rapsodia,
                 observations: null,
             },
         ],
     },
     {
-        date: "16 aprilie 2025",
+        date: 16,
+        day: "Miercuri",
         activities: [
             {
                 start: 7.0,
                 end: 9.0,
                 activity: "Mic dejun",
-                map: embeds.rapsodia,
-                location: "Hotel Rapsodia/ Maria",
+                location: places.rapsodia,
                 observations: null,
             },
             {
                 start: 9.0,
                 end: 13.0,
                 activity: "Excursie",
-                map: embeds.vorona,
-                location: "Vorona",
+                location: places.vorona,
                 observations: null,
             },
             {
@@ -248,16 +253,14 @@ export let program = [
             {
                 start: 14.5,
                 activity: "Masa de prânz",
-                map: embeds.rapsodia,
-                location: "Hotel Rapsodia/ Maria",
+                location: places.rapsodia,
                 observations: null,
             },
             {
                 start: 15.5,
                 end: 18.0,
                 activity: "Festivitate de premiere",
-                map: embeds.mihaiEminescu,
-                location: 'Teatrul "Mihai Eminescu" Botoșani',
+                location: places.teatrulMihaiEminescu,
                 observations: null,
             },
 
@@ -269,104 +272,95 @@ export let program = [
             {
                 start: 19.5,
                 activity: "Cină festivă",
-                map: embeds.rapsodia,
-                location: 'Hotel Rapsodia - Sala "Mihai Eminescu"',
+                location: places.rapsodia,
                 observations: null,
             },
         ],
     },
     {
-        date: "17 aprilie 2025",
+        date: 17,
+        day: "Joi",
         activities: [
             {
                 start: 7.0,
-                map: embeds.rapsodia,
                 end: 8.5,
                 activity: "Mic dejun",
-                location: "Hotel Rapsodia/ Maria",
+                location: places.rapsodia,
                 observations: null,
             },
             {
                 start: 8.5,
-                map: embeds.casalux,
-		branch: "baraj",
                 end: 9.0,
                 activity: "Sosire în centrul de concurs",
-                location: 'Centrul de concurs - Complex "Casa Lux"',
+                location: places.casalux,
                 observations: null,
             },
 
-	    {
-                    start: 8.5,
-                    end: 9.5,
-		    branch: "fara baraj",
-                    activity: "Pauză",
+            {
+                start: 8.5,
+                end: 9.5,
+                branch: "fara baraj",
+                activity: "Pauză",
             },
-	    {
+            {
 
-                    start: 9.5,
-                    map: embeds.cornisa,
-                    end: 13.0,
-		    branch: "fara baraj",
-                    activity:
-                        "Vizitarea orașului Botoșani / Activitate recreativă la Piscina Cornișa",
-                    location:
-                        "Orașul Botoșani/ Cornișa AquaPark & Sports Botosani",
-                    observations:
-                        "Participanții care nu participă la proba de baraj și doresc să beneficieze de acces pe bază de ecuson la Piscina Cornișa, trebuie să aibă echipament adecvat.",
+                start: 9.5,
+                end: 13.0,
+                branch: "fara baraj",
+                activity:
+                    "Vizitarea orașului Botoșani / Activitate recreativă la Piscina Cornișa",
+                location: places.cornisa,
+                observations:
+                    "Participanții care nu participă la proba de baraj și doresc să beneficieze de acces pe bază de ecuson la Piscina Cornișa, trebuie să aibă echipament adecvat.",
             },
 
-	    {
-                    start: 13,
-                    end: 13.5,
-		    branch: "fara baraj",
-                    activity:
-                        "Pauză",
+            {
+                start: 13,
+                end: 13.5,
+                branch: "fara baraj",
+                activity:
+                    "Pauză",
             },
-	    {
-                    start: 9.0,
-                    map: embeds.casalux,
-		    branch: "baraj",
-                    end: 13.0,
-                    activity:
-                        "Barajul de selecţie a lotului naţional de junior",
-                    location: 'Centrul de concurs - Complex "Casa Lux"',
-                    observations: null,
+            {
+                start: 9.0,
+                branch: "baraj",
+                end: 13.0,
+                activity:
+                    "Barajul de selecţie a lotului naţional de junior",
+                location: places.casalux,
+                observations: null,
             },
 
-	    {
-                    start: 13,
-                    end: 13.5,
-		    branch: "baraj",
-                    activity:
-                        "Pauză",
+            {
+                start: 13,
+                end: 13.5,
+                branch: "baraj",
+                activity:
+                    "Pauză",
             },
             {
                 start: 13.5,
-                map: embeds.rapsodia,
                 activity: "Masa de prânz",
-                location: "Hotel Rapsodia",
+                location: places.rapsodia,
                 observations: null,
             },
             {
                 start: 19.5,
-                map: embeds.rapsodia,
                 activity: "Cină",
-                location: "Hotel Rapsodia",
+                location: places.rapsodia,
                 observations: null,
             },
         ],
     },
     {
-        date: "18 aprilie 2025",
-
+        date: 18,
+        day: "Vineri",  
         activities: [
             {
                 start: 7.0,
                 end: 9.0,
                 activity: "Mic dejun",
-                map: embeds.rapsodia,
-                location: "Hotel Rapsodia/ Maria",
+                location: places.rapsodia,
                 observations: null,
             },
 
@@ -378,7 +372,7 @@ export let program = [
             {
                 start: 10.0,
                 activity: "Plecarea participanţilor",
-                map: null,
+                location: null,
                 observations: null,
             },
         ],
