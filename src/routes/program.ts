@@ -318,7 +318,8 @@ export let program = [
                 end: 19.5,
                 activity: {
                     ...activities.freeTime,
-                    label: null, // Mai mic spatiul
+                    mainActivity: false,
+                    label: null, 
                 },
             },
             {

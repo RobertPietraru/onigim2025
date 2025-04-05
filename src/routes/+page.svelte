@@ -79,8 +79,8 @@
 
 {#snippet Activity(act: (typeof program)[number]["activities"][number])}
     <div
-        class="flex flex-col pt-4 md:pt-0 md:flex-row {'mainActivity' in
-            act.activity && !act.activity.mainActivity
+        class="flex flex-col pt-4 md:pt-0 md:flex-row {!('mainActivity' in
+            act.activity && !act.activity.mainActivity)
             ? 'bg-muted md:bg-inherit'
             : ''}  md:hover:bg-muted transition-all duration-200"
     >
@@ -124,7 +124,7 @@
             />
         </div>
 
-        <div class="px-4 flex-1 lg:px-6 pb-12 md:pb-0 md:min-h-20">
+        <div class="px-4 flex-1 lg:px-6 pb-6 md:pb-0 md:min-h-20">
             <h3
                 class="text-slate-800 mb-2 sm:mb-3 text-lg sm:text-xl font-semibold flex items-center gap-2"
             >
@@ -222,7 +222,7 @@
             {#if act.observations}
                 <Alert.Root
                     variant="default"
-                    class="bg-blue-50 border-blue-200"
+                    class="bg-blue-50 border-blue-200 max-w-2xl"
                 >
                     <Alert.Title
                         class="text-blue-900 font-semibold flex items-center gap-2"
@@ -235,7 +235,7 @@
                     </Alert.Description>
                 </Alert.Root>
             {/if}
-            <div class="h-4">
+            <div class="md:h-4">
 
             </div>
         </div>
