@@ -1,12 +1,14 @@
 <script lang="ts">
     import { Separator } from "$lib/components/ui/separator";
     import { Button } from "$lib/components/ui/button";
-    import { program, activityTypes, activities } from "./program";
+    import { program, activities } from "./program";
     import * as Tabs from "$lib/components/ui/tabs/index.js";
     import * as Alert from "$lib/components/ui/alert";
 
-    let active_branch: "baraj" | "fara baraj" = $state("baraj");
+    let active_branch: "baraj" | "fara baraj" | "profesor" | "elev" =
+        $state("elev");
     let active_day = $state(program[0].date.toString());
+    $inspect(active_branch);
 
     let days = $derived(
         program.map((day) => {
@@ -36,6 +38,18 @@
             {#each days as day}
                 <Tabs.Trigger
                     class="flex-1 min-w-fit px-4"
+                    onclick={() => {
+                        if (day.date == 16) {
+                            active_branch = "elev";
+                            return;
+                        }
+
+                        if (day.date == 17) {
+                            active_branch = "baraj";
+                            return;
+                        }
+                        active_branch = "elev";
+                    }}
                     value={day.date.toString()}
                 >
                     <span class="hidden md:inline">
@@ -65,12 +79,13 @@
 
 {#snippet Activity(act: (typeof program)[number]["activities"][number])}
     <div
-        class="flex flex-col pt-4 md:pt-0 md:flex-row {act.activity !== 'Pauză'
+        class="flex flex-col pt-4 md:pt-0 md:flex-row {'mainActivity' in
+            act.activity && !act.activity.mainActivity
             ? 'bg-muted md:bg-inherit'
             : ''}  md:hover:bg-muted transition-all duration-200"
     >
         <div
-            class="relative w-full md:w-32 text-slate-600 font-semibold text-base sm:text-lg flex flex-row justify-between px-4 items-center md:items-start "
+            class="relative w-full md:w-32 text-slate-600 font-semibold text-base sm:text-lg flex flex-row justify-between px-4 items-center md:items-start"
         >
             <span
                 >{act.start
@@ -102,31 +117,51 @@
             </div>
             <Separator
                 orientation="vertical"
-                class="w-2 mt-2 {act.activity !== 'Pauză' ? 'bg-blue-500' : ''}"
+                class="w-2 mt-2 {!('mainActivity' in act.activity) ||
+                act.activity.mainActivity
+                    ? 'bg-blue-500'
+                    : ''}"
             />
         </div>
 
-        <div class="px-4 flex-1 lg:px-6 pb-12 md:pb-0 md:min-h-40">
+        <div class="px-4 flex-1 lg:px-6 pb-12 md:pb-0 md:min-h-20">
             <h3
                 class="text-slate-800 mb-2 sm:mb-3 text-lg sm:text-xl font-semibold flex items-center gap-2"
             >
-                <span
-                    >{activities[act.activity as keyof typeof activities]
-                        ?.icon || "📅"}</span
-                >
-                <span>{act.activity}</span>
+                {#if act.activity.label}
+                    <span
+                        >{activities[
+                            act.activity.type as keyof typeof activities
+                        ]?.icon || "📅"}</span
+                    >
+                    <span>{act.activity.label}</span>
+                {/if}
             </h3>
-            {#if act.location}
-                <a
-                    href={act.location.url}
-                    class="text-slate-500 hover:text-slate-800 hover:underline active:text-slate-800 cursor-pointer mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2 tap-highlight-transparent"
-                >
-                    <span>📍</span>
-                    <span>{act.location.name}</span>
-                </a>
+            {#if act.locations && act.locations.length > 0}
+                {#each act.locations as location}
+                    <a
+                        href={location.url}
+                        class="text-slate-500 hover:text-slate-800 hover:underline active:text-slate-800 cursor-pointer mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2 tap-highlight-transparent"
+                    >
+                        <span>📍</span>
+                        <span>{location.name}</span>
+                    </a>
+                {/each}
             {/if}
 
-            {#if "branch" in act && act.activity !== "Pauză"}
+            {#if "innerLocations" in act && act.innerLocations && act.innerLocations.length > 0}
+                {#each act.innerLocations as location}
+                    <a
+                        href={location.url}
+                        class="text-slate-500 hover:text-slate-800 hover:underline active:text-slate-800 cursor-pointer mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2 tap-highlight-transparent pl-4 border-l-2 border-slate-200"
+                    >
+                        <span>️</span>
+                        <span>{location.name}</span>
+                    </a>
+                {/each}
+            {/if}
+
+            {#if "branch" in act && act.activity.type !== "freeTime" && (!("mainActivity" in act.activity) || act.activity.mainActivity) && ["baraj", "fara baraj"].includes(active_branch)}
                 <Button
                     variant="outline"
                     class="my-2"
@@ -149,6 +184,41 @@
                 </Button>
             {/if}
 
+            {#if "branch" in act && act.activity.type !== "freeTime" && ["profesor", "elev"].includes(active_branch)}
+                <Button
+                    variant="outline"
+                    class="my-2"
+                    onclick={() => {
+                        if (active_branch == "profesor") {
+                            active_branch = "elev";
+                        } else {
+                            active_branch = "profesor";
+                        }
+                    }}
+                >
+                    <span>
+                        {active_branch == "profesor" ? "👨‍💻" : "👨‍🏫"}
+                    </span>
+                    <span
+                        >{active_branch == "profesor"
+                            ? "Vezi programul elevilor"
+                            : "Vezi programul profesorilor"}</span
+                    >
+                </Button>
+            {/if}
+
+
+            {#if "files" in act && act.files && act.files.length > 0}
+                <Separator orientation="horizontal" class="my-2" />
+                {#each act.files as file}
+                    <a href={file.url} class="text-slate-500 hover:text-slate-800 hover:underline active:text-slate-800 cursor-pointer mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2 tap-highlight-transparent"
+                    >
+                        <span>📄</span>
+                        <span>{file.name}</span>
+                    </a>
+                {/each}
+            {/if}
+
             {#if act.observations}
                 <Alert.Root
                     variant="default"
@@ -165,6 +235,9 @@
                     </Alert.Description>
                 </Alert.Root>
             {/if}
+            <div class="h-4">
+
+            </div>
         </div>
     </div>
 {/snippet}
