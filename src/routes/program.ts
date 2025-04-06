@@ -156,7 +156,7 @@ export let program = [
                 end: 15.5,
                 activity: {
                     ...activities.transport,
-                    label: "Deplasare spre Teatrul Mihai Eminescu",
+                    label: 'Accesul la teatrul "Mihai Eminescu"',
                 },
             },
             {
@@ -174,7 +174,7 @@ export let program = [
                 end: 18.0,
                 activity: {
                     ...activities.transport,
-                    label: "Deplasare spre Parcarea magazinului Elvila Botosani pentru deplasarea cu autocarele spre centrul de concurs",
+                    label: "Din parcarea magazinului Elvila Botosani, se face deplasarea cu autocarul spre centrul de concurs",
                 },
             },
             {
@@ -192,7 +192,7 @@ export let program = [
                 end: 19.5,
                 activity: {
                     ...activities.transport,
-                    label: "Intoarcerea la hotel cu autocare la Hotel Rapsodia/Maria",
+                    label: "Deplasare din centrul de concurs spre Hotel Rapsodia/Maria/Belvedere",
                 },
             },
             {
@@ -226,7 +226,7 @@ export let program = [
                 end: 9.5,
                 activity: {
                     ...activities.transport,
-                    label: "Deplasare în centrul de concurs cu microbuze",
+                    label: "Deplasare spre centrul de concurs",
                 },
                 locations: [places.casalux],
                 observations: null,
@@ -237,7 +237,7 @@ export let program = [
                 end: 10.0,
                 activity: {
                     ...activities.transport,
-                    label: "Sosirea in centrul de concurs",
+                    label: "Sosirea în centrul de concurs",
                     mainActivity: true,
                 },
             },
@@ -271,7 +271,7 @@ export let program = [
                 end: 14.5,
                 activity: {
                     ...activities.transport,
-                    label: "Intoarcere de la concurs spre hoteluri cu microbuze",
+                    label: "Intoarcerea de la concurs spre hoteluri",
                 },
             },
             {
@@ -415,7 +415,7 @@ export let program = [
                     ...activities.breakfast,
                     label: "Mic dejun",
                 },
-                locations: [places.hotelRapsodia],
+                locations: [places.hotelRapsodia, places.hotelMaria],
                 observations: null,
             },
             {
@@ -489,7 +489,7 @@ export let program = [
                     ...activities.dinner,
                     label: "Masa de prânz",
                 },
-                locations: [places.hotelRapsodia],
+                locations: [places.hotelRapsodia, places.hotelMaria],
                 observations: null,
             },
             {
