@@ -4,6 +4,7 @@
     import { program, activities } from "./program";
     import * as Tabs from "$lib/components/ui/tabs/index.js";
     import * as Alert from "$lib/components/ui/alert";
+    import { onMount } from "svelte";
 
     let active_branch: "baraj" | "fara baraj" | "profesor" | "elev" =
         $state("elev");
@@ -23,6 +24,11 @@
             };
         }),
     );
+
+    onMount(() => {
+        const height = document.body.scrollHeight;
+        parent.postMessage({ iframeHeight: height }, "*");
+    });
 </script>
 
 <main class="flex flex-col gap-4">
@@ -79,8 +85,9 @@
 
 {#snippet Activity(act: (typeof program)[number]["activities"][number])}
     <div
-        class="flex flex-col pt-4 md:pt-0 md:flex-row {!('mainActivity' in
-            act.activity && !act.activity.mainActivity)
+        class="flex flex-col pt-4 md:pt-0 md:flex-row {!(
+            'mainActivity' in act.activity && !act.activity.mainActivity
+        )
             ? 'bg-muted md:bg-inherit'
             : ''}  md:hover:bg-muted transition-all duration-200"
     >
@@ -207,11 +214,12 @@
                 </Button>
             {/if}
 
-
             {#if "files" in act && act.files && act.files.length > 0}
                 <Separator orientation="horizontal" class="my-2" />
                 {#each act.files as file}
-                    <a href={file.url} class="text-slate-500 hover:text-slate-800 hover:underline active:text-slate-800 cursor-pointer mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2 tap-highlight-transparent"
+                    <a
+                        href={file.url}
+                        class="text-slate-500 hover:text-slate-800 hover:underline active:text-slate-800 cursor-pointer mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2 tap-highlight-transparent"
                     >
                         <span>📄</span>
                         <span>{file.name}</span>
@@ -235,9 +243,7 @@
                     </Alert.Description>
                 </Alert.Root>
             {/if}
-            <div class="md:h-4">
-
-            </div>
+            <div class="md:h-4"></div>
         </div>
     </div>
 {/snippet}
