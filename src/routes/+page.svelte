@@ -39,7 +39,13 @@
         aprilie 2025
     </h1>
 
-    <Tabs.Root value={active_day.toString()}>
+    <Tabs.Root
+        value={active_day.toString()}
+        onValueChange={() => {
+            const height = document.body.scrollHeight;
+            parent.postMessage({ iframeHeight: height }, "*");
+        }}
+    >
         <Tabs.List class="overflow-x-auto flex mx-4">
             {#each days as day}
                 <Tabs.Trigger
