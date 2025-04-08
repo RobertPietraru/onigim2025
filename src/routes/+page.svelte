@@ -26,8 +26,10 @@
     );
 
     onMount(() => {
-        const height = document.body.scrollHeight;
-        parent.postMessage({ iframeHeight: height }, "*");
+        setTimeout(() => {
+            const height = document.body.scrollHeight;
+            parent.postMessage({ iframeHeight: height }, "*");
+        }, 100);
     });
 </script>
 
@@ -42,8 +44,10 @@
     <Tabs.Root
         value={active_day.toString()}
         onValueChange={() => {
-            const height = document.body.scrollHeight;
-            parent.postMessage({ iframeHeight: height }, "*");
+            setTimeout(() => {
+                const height = document.body.scrollHeight;
+                parent.postMessage({ iframeHeight: height }, "*");
+            }, 100);
         }}
     >
         <Tabs.List class="overflow-x-auto flex mx-4">
