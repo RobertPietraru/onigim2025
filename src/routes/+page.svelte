@@ -31,10 +31,13 @@
             parent.postMessage({ iframeHeight: height }, "*");
         }, 100);
     });
+
+    function redirectTo(url: string) {
+        parent.postMessage({ redirectTo: url }, "*");
+    }
 </script>
 
 <main class="flex flex-col gap-4 bg-[#f0f0f0]">
-
     <Tabs.Root
         value={active_day.toString()}
         onValueChange={() => {
@@ -150,25 +153,25 @@
             </h3>
             {#if act.locations && act.locations.length > 0}
                 {#each act.locations as location}
-                    <a
-                        href={location.url}
+                    <button
+                        onclick={() => redirectTo(location.url)}
                         class="text-slate-500 hover:text-slate-800 hover:underline active:text-slate-800 cursor-pointer mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2 tap-highlight-transparent"
                     >
                         <span>📍</span>
                         <span>{location.name}</span>
-                    </a>
+                    </button>
                 {/each}
             {/if}
 
             {#if "innerLocations" in act && act.innerLocations && act.innerLocations.length > 0}
                 {#each act.innerLocations as location}
-                    <a
-                        href={location.url}
+                    <button
+                        onclick={() => redirectTo(location.url)}
                         class="text-slate-500 hover:text-slate-800 hover:underline active:text-slate-800 cursor-pointer mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2 tap-highlight-transparent pl-4 border-l-2 border-slate-200"
                     >
                         <span>️</span>
                         <span>{location.name}</span>
-                    </a>
+                    </button>
                 {/each}
             {/if}
 
@@ -221,13 +224,13 @@
             {#if "files" in act && act.files && act.files.length > 0}
                 <Separator orientation="horizontal" class="my-2" />
                 {#each act.files as file}
-                    <a
-                        href={file.url}
+                    <button
+                        onclick={() => redirectTo(file.url)}
                         class="text-slate-500 hover:text-slate-800 hover:underline active:text-slate-800 cursor-pointer mb-2 sm:mb-3 text-base sm:text-lg flex items-center gap-2 tap-highlight-transparent"
                     >
                         <span>📄</span>
                         <span>{file.name}</span>
-                    </a>
+                    </button>
                 {/each}
             {/if}
 
@@ -257,3 +260,10 @@
         class="w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_0_4px_rgba(52,152,219,0.2)] transition-transform duration-200 group-hover:scale-120"
     ></div>
 {/snippet}
+
+
+<style>
+    :global(body) {
+        background: #f0f0f0;
+    }
+</style>
