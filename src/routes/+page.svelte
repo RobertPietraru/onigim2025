@@ -33,13 +33,7 @@
     });
 </script>
 
-<main class="flex flex-col gap-4">
-    <h1
-        class="text-slate-800 text-2xl sm:text-3xl lg:text-4xl pb-4 border-b-2 border-slate-100 px-4"
-    >
-        PROGRAMUL OLIMPIADEI NAŢIONALE DE INFORMATICĂ GIMNAZIU Botoșani, 14-18
-        aprilie 2025
-    </h1>
+<main class="flex flex-col gap-4 bg-[#f0f0f0]">
 
     <Tabs.Root
         value={active_day.toString()}
