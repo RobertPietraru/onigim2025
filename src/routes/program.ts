@@ -184,7 +184,7 @@ export let program = [
                 end: 18.0,
                 activity: {
                     ...activities.transport,
-                    label: "Din parcarea magazinului Elvila Botosani, se face deplasarea cu autocarul spre centrul de concurs",
+                    label: "Din zona Teatru/Rapsodia, se face deplasarea cu autocarul spre centrul de concurs",
                 },
             },
             {
@@ -365,7 +365,7 @@ export let program = [
                     label: 'Excursie tematică - ”Târgul de artă populară botoșăneană” pe ruta Botoșani - Vorona și retur', // (Plecarea )
                 },
                 locations: [places.vorona, places.liceuVorona, places.manastireaVorona],
-                observations: "Plecare la ora 09.30 din Parcarea ”Magazin Elvila” Botoșani și revenire în aceeași parcare la orele 13,00-13,30",
+                observations: "Plecare la ora 09.30 din zona Teatru/Rapsodia și revenire la orele 13,00-13,30",
             },
             {
                 start: 13,
