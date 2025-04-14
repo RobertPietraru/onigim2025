@@ -40,6 +40,7 @@
 <main class="flex flex-col gap-4 bg-[#f0f0f0]">
     <Tabs.Root
         value={active_day.toString()}
+        class="p-0"
         onValueChange={() => {
             setTimeout(() => {
                 const height = document.body.scrollHeight;
@@ -47,10 +48,10 @@
             }, 100);
         }}
     >
-        <Tabs.List class="overflow-x-auto flex mx-4">
+        <Tabs.List class="overflow-x-auto flex mx-0">
             {#each days as day}
                 <Tabs.Trigger
-                    class="flex-1 min-w-fit px-4"
+                    class="flex-1 min-w-fit px-0"
                     onclick={() => {
                         if (day.date == 16) {
                             active_branch = "elev";
@@ -76,9 +77,9 @@
         </Tabs.List>
 
         {#each days as day}
-            <Tabs.Content value={day.date.toString()}>
+            <Tabs.Content value={day.date.toString()} class="p-0 m-0">
                 <h2
-                    class="text-slate-800 text-2xl sm:text-3xl lg:text-4xl sm:mb-10 pb-4 border-b-2 border-slate-100 px-4"
+                    class="text-slate-800 text-2xl sm:text-3xl lg:text-4xl sm:mb-10 pb-4 border-b-2 border-slate-100 px-0"
                 >
                     <span>{day.day}, {day.date} Aprilie 2025</span>
                 </h2>
@@ -92,7 +93,8 @@
 
 {#snippet Activity(act: (typeof program)[number]["activities"][number])}
     <div
-        class="flex flex-col pt-4 md:pt-0 md:flex-row {!(
+    
+        class="flex flex-col pt-4 md:pt-0 md:flex-row  p-0 mx-0 {!(
             'mainActivity' in act.activity && !act.activity.mainActivity
         )
             ? 'bg-muted md:bg-inherit'
@@ -112,6 +114,7 @@
                 <Separator
                     orientation="horizontal"
                     class="flex-1 h-[4px] mx-4 md:hidden"
+
                 />
             {/if}
             {#if act.end}
