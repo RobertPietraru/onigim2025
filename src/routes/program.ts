@@ -239,7 +239,6 @@ export let program = [
                     label: "Deplasare spre centrul de concurs",
                 },
                 locations: [places.casalux],
-                observations: null,
             },
 
             {
@@ -250,6 +249,8 @@ export let program = [
                     label: "Sosirea în centrul de concurs",
                     mainActivity: true,
                 },
+
+                observations: 'Accesul concurenților în sala de concurs se va face marți, 15 aprilie 2025, în intervalul orar 9:00 – 9:30.',
             },
 
             {
@@ -437,7 +438,7 @@ export let program = [
 
                 },
                 branch: "baraj",
-                observations: null,
+                observations: 'Accesul concurenților în sala de concurs se va face marți, 15 aprilie 2025, în intervalul orar 8:00 – 8:30.',
             },
             {
                 start: 8.5,
