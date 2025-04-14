@@ -258,7 +258,7 @@ export let program = [
                 end: 14.0,
                 activity: {
                     ...activities.oni,
-                    label: "Proba ONI",
+                    label: "Proba ONI pentru clasele V-VI de la <span class='text-red-500'>10:00 la 14:00</span>. <br>De la <span class='text-red-500'>15:00 la 19:00</span>, proba ONI pentru clasele VII-VIII",
                 },
                 branch: "elev",
                 locations: [places.casalux],
@@ -287,12 +287,22 @@ export let program = [
             },
             {
                 start: 14.5,
-                end: 16.0,
+                end: 15.5,
                 activity: {
                     ...activities.dinner,
                     label: "Masa de prânz",
                 },
                 locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere, places.hotelPremier],
+                observations: null,
+            },
+
+            {
+                start: 15.5,
+                end: 16.0,
+                activity: {
+                    ...activities.freeTime,
+                    label: null,
+                },
                 observations: null,
             },
             {

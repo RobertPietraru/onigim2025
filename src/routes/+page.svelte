@@ -143,7 +143,7 @@
 
         <div class="px-4 flex-1 lg:px-6 pb-6 md:pb-0 md:min-h-20">
             <h3
-                class="text-slate-800 mb-2 sm:mb-3 text-lg sm:text-xl font-semibold flex items-center gap-2"
+                class="text-slate-800 mb-2 sm:mb-3 text-lg sm:text-xl font-semibold flex items-start gap-2 "
             >
                 {#if act.activity.label}
                     <span
@@ -151,7 +151,7 @@
                             act.activity.type as keyof typeof activities
                         ]?.icon || "📅"}</span
                     >
-                    <span>{act.activity.label}</span>
+                    <span>{@html act.activity.label}</span>
                 {/if}
             </h3>
             {#if act.locations && act.locations.length > 0}
