@@ -1,10 +1,4 @@
 export let places = {
-    hotelPremier: {
-        url: "https://maps.app.goo.gl/eKY4kF33PPhCHWj8A",
-        name: "Hotel Premier",
-    },
-
-
     salaMihaiEminescu: {
         url: "https://www.hotelrapsodia.ro/index.php?content=sala-eminescu",
         name: "Sala Mihai Eminescu, Etajul 1",
@@ -156,7 +150,7 @@ export let program = [
                     ...activities.accommodation,
                     label: "Cazarea participanţilor",
                 },
-                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere, places.hotelPremier],
+                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere],
 
                 observations:
                     "Consultaţi pe site în zona Centrul de concurs / Cazare repartizarea pe hoteluri",
@@ -211,7 +205,7 @@ export let program = [
                     ...activities.dinner,
                     label: "Cină",
                 },
-                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere, places.hotelPremier],
+                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere],
                 observations: null,
             },
         ],
@@ -227,7 +221,7 @@ export let program = [
                     ...activities.breakfast,
                     label: "Mic dejun",
                 },
-                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere, places.hotelPremier],
+                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere],
                 observations: null,
             },
 
@@ -292,7 +286,7 @@ export let program = [
                     ...activities.dinner,
                     label: "Masa de prânz",
                 },
-                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere, places.hotelPremier],
+                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere],
                 observations: null,
             },
 
@@ -349,7 +343,7 @@ export let program = [
                     ...activities.dinner,
                     label: "Cină",
                 },
-                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere, places.hotelPremier],
+                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere],
                 observations: null,
             },
         ],
@@ -365,7 +359,7 @@ export let program = [
                     ...activities.breakfast,
                     label: "Mic dejun",
                 },
-                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere, places.hotelPremier],
+                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere],
                 observations: null,
             },
             {
@@ -392,7 +386,7 @@ export let program = [
                     ...activities.dinner,
                     label: "Masa de prânz",
                 },
-                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere, places.hotelPremier],
+                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere],
                 observations: null,
             },
             {
@@ -420,7 +414,7 @@ export let program = [
                     ...activities.dinner,
                     label: "Cină",
                 },
-                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere, places.hotelPremier],
+                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere],
             },
         ],
     },
@@ -435,7 +429,7 @@ export let program = [
                     ...activities.breakfast,
                     label: "Mic dejun",
                 },
-                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere, places.hotelPremier],
+                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere],
                 observations: null,
             },
             {
@@ -509,7 +503,7 @@ export let program = [
                     ...activities.dinner,
                     label: "Masa de prânz",
                 },
-                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere, places.hotelPremier],
+                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere],
                 observations: null,
             },
             {
@@ -518,7 +512,7 @@ export let program = [
                     ...activities.dinner,
                     label: "Cină",
                 },
-                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere, places.hotelPremier],
+                locations: [places.hotelRapsodia, places.hotelMaria, places.hotelBelvedere],
                 observations: null,
             },
         ],
